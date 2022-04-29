@@ -62,4 +62,9 @@ jobs:
           CPPFLAGS="-fsanitize=address" LDFLAGS="-fsanitize=address"
     - name: Build aria2
       run: |
-        make -j$(nproc) check
+        make -j$(nproc)
+    - name: Deliver Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: aria2c_build.zip
+        path: ./src/aria2c
